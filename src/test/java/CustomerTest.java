@@ -77,4 +77,11 @@ public class CustomerTest {
         customer.setOwnedCars(ownedCars);
         assertEquals(2, customer.getOwnedCars().size());
     }
+
+    @Test
+    public void canBuyCar() {
+        customer.buyCar(car1);
+        assertEquals(1, customer.getOwnedCars().size());
+        assertEquals(87500.00, customer.getMoney(), 0.01);
+    }
 }

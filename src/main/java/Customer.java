@@ -1,8 +1,9 @@
+import behaviors.IBuy;
 import car.Car;
 
 import java.util.ArrayList;
 
-public class Customer {
+public class Customer implements IBuy {
 
     private double money;
     private ArrayList<Car> ownedCars;
@@ -26,5 +27,10 @@ public class Customer {
 
     public void addOwnedCars(Car car) {
         ownedCars.add(car);
+    }
+
+    public void buyCar(Car car) {
+        addOwnedCars(car);
+        money -= car.getPrice();
     }
 }

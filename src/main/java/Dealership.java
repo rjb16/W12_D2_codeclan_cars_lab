@@ -1,8 +1,10 @@
+import behaviors.IBuy;
 import car.Car;
+import sun.nio.cs.ext.IBM037;
 
 import java.util.ArrayList;
 
-public class Dealership {
+public class Dealership implements IBuy {
 
     private ArrayList<Car> stock;
     private double till;
@@ -22,5 +24,10 @@ public class Dealership {
 
     public void addStock(Car car) {
         stock.add(car);
+    }
+
+    public void buyCar(Car car) {
+        addStock(car);
+        till -= car.getPrice();
     }
 }

@@ -67,4 +67,11 @@ public class DealershipTest {
         dealership.addStock(car1);
         assertEquals(1, dealership.getStock().size());
     }
+
+    @Test
+    public void canBuyCar() {
+        dealership.buyCar(car1);
+        assertEquals(1, dealership.getStock().size());
+        assertEquals(110956.00, dealership.getTill(), 0.01);
+    }
 }

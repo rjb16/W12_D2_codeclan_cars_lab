@@ -30,4 +30,11 @@ public class Dealership implements IBuy {
         addStock(car);
         till -= car.getPrice();
     }
+
+    public void sellCar(Customer customer, Car car) {
+        stock.remove(car);
+        till += car.getPrice();
+        customer.addOwnedCars(car);
+        customer.removeMoney(car.getPrice());
+    }
 }

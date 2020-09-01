@@ -33,4 +33,8 @@ public class Customer implements IBuy {
         addOwnedCars(car);
         money -= car.getPrice();
     }
+
+    public void removeMoney(double amount) {
+        money -= amount;
+    }
 }

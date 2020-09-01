@@ -9,6 +9,7 @@ import static org.junit.Assert.assertEquals;
 public class DealershipTest {
 
     Dealership dealership;
+    Customer customer;
     Car car1;
     Car car2;
     ArrayList<Car> cars;
@@ -22,6 +23,7 @@ public class DealershipTest {
     @Before
     public void before() {
         dealership = new Dealership(123456.00);
+        customer = new Customer(100000.00);
         engine1 = new CombustionEngine(1600, 4);
         transmission1 = new Transmission("Manual", 6);
         tyres1 = new Tyres("Michelin", "205/17/40");
@@ -73,5 +75,15 @@ public class DealershipTest {
         dealership.buyCar(car1);
         assertEquals(1, dealership.getStock().size());
         assertEquals(110956.00, dealership.getTill(), 0.01);
+    }
+
+    @Test
+    public void canSellCar() {
+        dealership.addStock(car1);
+        dealership.sellCar(customer, car1);
+        assertEquals(0, dealership.getStock().size());
+        assertEquals(135956.00, dealership.getTill(), 0.01);
+        assertEquals(1, customer.getOwnedCars().size());
+        assertEquals(87500.00, customer.getMoney(), 0.01);
     }
 }

@@ -1,3 +1,4 @@
+import car.CombustionEngine;
 import car.Engine;
 import org.junit.Before;
 import org.junit.Test;
@@ -6,11 +7,11 @@ import static org.junit.Assert.assertEquals;
 
 public class EngineTest {
 
-    Engine engine;
+    CombustionEngine engine;
 
     @Before
     public void before() {
-        engine = new Engine(1600, 4);
+        engine = new CombustionEngine(1600, 4);
     }
 
     @Test

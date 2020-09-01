@@ -13,7 +13,7 @@ public class CarTest {
 
     @Before
     public void before() {
-        engine1 = new Engine(1600, 4);
+        engine1 = new CombustionEngine(1600, 4);
         transmission1 = new Transmission("Manual", 6);
         tyres1 = new Tyres("Michelin", "205/17/40");
         car1 = new Car(
